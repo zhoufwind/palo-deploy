@@ -24,12 +24,12 @@
 #
 # You need acknowledge following items before run it:
 #   - Execute this script by root account;
-#   - Supervisor have been installed previously
+#   - Supervisor have been installed previously;
 #################################################################################
 
 # Usage
 Usage() {
-    echo "deploy-be.sh [be_id] [be_data_path] [be_owner] [be_build_path] [be_log_path]"
+    echo "deploy-be.sh [be_id] [be_data_path] [be_owner] [palo_output_path] [be_log_path]"
     return 0
 }
 
@@ -59,7 +59,7 @@ echo "BE settings:"
 echo "be_id: $1"
 echo "be_data_path: $2"
 echo "be_owner: $3"
-echo "be_build_path: $4"
+echo "palo_output_path: $4"
 echo "be_log_path: $5"
 read -p "If continue, press y..." -n 1 -r
 echo    # (optional) move to a new line
