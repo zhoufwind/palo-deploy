@@ -31,6 +31,7 @@
 # Usage
 Usage() {
     echo "deploy-fe.sh [fe_owner] [palo_output_path] [fe_log_path] [java_home]"
+    echo "Eg: sh deploy-fe.sh palo /usr/local/src/output /data/palo_fe_log /home/soft/java"
     return 0
 }
 
@@ -124,7 +125,7 @@ echo "reload supervisor..."
 supervisorctl reload
 
 # Show supervisor status
-sleep 2
+sleep 3
 echo "show supervirsor status..."
 supervisorctl status
 

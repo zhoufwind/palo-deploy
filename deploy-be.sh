@@ -30,6 +30,7 @@
 # Usage
 Usage() {
     echo "deploy-be.sh [be_id] [be_data_path] [be_owner] [palo_output_path] [be_log_path]"
+    echo "Eg: sh deploy-be.sh 1 /data1/palo palo /usr/local/src/output /data1/palo_be_log"
     return 0
 }
 
@@ -136,6 +137,6 @@ echo "reload supervisor..."
 supervisorctl reload
 
 # Show supervisor status
-sleep 2
+sleep 3
 echo "show supervirsor status..."
 supervisorctl status
