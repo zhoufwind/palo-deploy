@@ -39,6 +39,19 @@ systemctl status supervisord.service
 cp -rf /your/local/path/incubator-doris-DORIS-x.x.x-release/output /usr/local/src/output
 ```
 
+注：在部署集群时，不可能将整个源码+编译文件都拷贝到集群服务器，此时只需打包`output`目录，拷贝至集群各服务器，解压使用：
+
+```bash
+# 编译服务器上打包output目录，并上传至ftp
+cd /your/local/path/incubator-doris-DORIS-x.x.x-release/
+tar zcf output.tar.gz output
+curl -s -k -T output.tar.gz output -u <u>:<p> ftp://x.x.x.x//
+
+# 从ftp拷贝打包文件至集群各服务器，并解压
+wget -P /usr/local/src/ ftp://<u>:<p>@x.x.x.x:21/output.tar.gz
+tar zxf /usr/local/src/output.tar.gz -C /usr/local/src/
+```
+
 4. 部署`Frontend`，`root`环境下执行以下命令：
 
 ```bash
