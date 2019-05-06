@@ -113,4 +113,19 @@ sh upgrade-be.sh 3 /data3/palo palo /usr/local/src/output /data3/palo_be_log
 
 ```bash
 sh upgrade-fe.sh palo /usr/local/src/output /data2/palo_fe_log /home/soft/java
+su - palo
+cd /home/palo/fe/palo-meta/image/
+cp VERSION VERSION.bak
+vi VERSION
+token=xxx
+clusterId=xxx
+```
+
+注：必须指定token及clusterId，否则FE加入集群会失败：`ErrMsg: invalid cluster id: xxx`
+
+4. BE及FE全部升级完毕后，重启supervisor，使之生效：
+
+```
+supervisorctl reload
+supervisorctl status
 ```

@@ -82,6 +82,5 @@ cp -rf /home/$1/fe/bin/start_fe.sh /home/$1/fe/bin/start_fe_hup.sh
 chown $1:$1 /home/$1/fe/bin/start_fe_hup.sh
 sed -i "s,/dev/null &,/dev/null,g" /home/$1/fe/bin/start_fe_hup.sh
 
-# Reload supervisor
-echo "reload supervisor..."
-supervisorctl reload
+# Modify token and clusterId
+echo "Modify token and clusterId manually at: /home/palo/fe/palo-meta/image/VERSION"

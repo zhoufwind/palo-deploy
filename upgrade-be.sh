@@ -86,7 +86,3 @@ echo "Modify BE bin file..."
 cp -rf /home/$3/be$1/bin/start_be.sh /home/$3/be$1/bin/start_be_hup.sh
 chown $3:$3 /home/$3/be$1/bin/start_be_hup.sh
 sed -i "s,/dev/null &,/dev/null,g" /home/$3/be$1/bin/start_be_hup.sh
-
-# Reload supervisor
-echo "reload supervisor..."
-supervisorctl reload
