@@ -96,3 +96,21 @@ mysql -h <fe_ip> -P 9030 -uroot
 ALTER SYSTEM ADD BACKEND "<be_ip>:<be_heartbeat_service_port>";
 SHOW PROC '/backends';
 ```
+
+## 升级palo
+
+升级脚本通常用在大版本升级（已验证v0.8.2至v0.9.0），采用了类似重新部署的方式，文件将全部替换；如果是小版本升级，BE只需升级`palo_be`；而FE只需升级`palo-fe.jar`；
+
+1. 拷贝新版palo编译完成后output文件至指定目录，如：`/usr/local/src/output`：
+
+2. 升级`Backend`，`root`环境下执行以下命令（各执行参数同部署脚本，不再重复）：
+
+```bash
+sh upgrade-be.sh 3 /data3/palo palo /usr/local/src/output /data3/palo_be_log
+```
+
+3. 升级`Frontend`，`root`环境下执行以下命令（各执行参数同部署脚本，不再重复）：
+
+```bash
+sh upgrade-fe.sh palo /usr/local/src/output /data2/palo_fe_log /home/soft/java
+```
