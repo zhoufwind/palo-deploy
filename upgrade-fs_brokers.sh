@@ -24,6 +24,7 @@
 #
 # You need acknowledge following items before run it:
 #   - Execute this script by root account;
+#   - Java have been installed previously;
 #   - Supervisor have been installed previously;
 #################################################################################
 
