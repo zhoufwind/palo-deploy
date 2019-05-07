@@ -80,6 +80,7 @@ sed -i "s,webserver_port = 8040,webserver_port = 804$1,g" /home/$3/be$1/conf/be.
 sed -i "s,heartbeat_service_port = 9050,heartbeat_service_port = 905$1,g" /home/$3/be$1/conf/be.conf
 sed -i "s,brpc_port = 8060,brpc_port = 806$1,g" /home/$3/be$1/conf/be.conf
 sed -i "s,/home/disk1/palo;/home/disk2/palo,$2,g" /home/$3/be$1/conf/be.conf
+echo "mem_limit = 30%" >> /home/$3/be$1/conf/be.conf
 
 # Modify BE bin file
 echo "Modify BE bin file..."

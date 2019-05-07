@@ -75,6 +75,9 @@ echo "Modify FE conf file..."
 cp -rf /home/$1/fe/conf/fe.conf /home/$1/fe/conf/fe.conf.src
 chown $1:$1 /home/$1/fe/conf/fe.conf.src
 echo "JAVA_HOME = $4" >> /home/$1/fe/conf/fe.conf
+echo "tablet_create_timeout_second = 4" >> /home/$1/fe/conf/fe.conf
+sed -i "s,-Xmx2024m,-Xmx8G,g" /home/$1/fe/conf/fe.conf
+sed -i "s,edit_log_port = 9010,edit_log_port = 9011,g" /home/$1/fe/conf/fe.conf
 
 # Modify FE bin file
 echo "Modify FE bin file..."
@@ -83,4 +86,5 @@ chown $1:$1 /home/$1/fe/bin/start_fe_hup.sh
 sed -i "s,/dev/null &,/dev/null,g" /home/$1/fe/bin/start_fe_hup.sh
 
 # Modify token and clusterId
-echo "Modify token and clusterId manually at: /home/palo/fe/palo-meta/image/VERSION"
+echo "Modify token and clusterId: /home/$1/fe/palo-meta/image/VERSION"
+cat /home/$1/fe/palo-meta/image/VERSION
