@@ -1,5 +1,5 @@
 # palo-deploy
-使用shell脚本部署Apache Doris (incubating)（原百度palo）
+使用shell脚本部署Apache Doris (incubating)（原百度palo，适用版本：0.8.X/ 0.9.X）
 
 ## 快速部署
 
