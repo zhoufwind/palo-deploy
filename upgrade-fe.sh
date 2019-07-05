@@ -76,7 +76,7 @@ cp -rf /home/$1/fe/conf/fe.conf /home/$1/fe/conf/fe.conf.src
 chown $1:$1 /home/$1/fe/conf/fe.conf.src
 echo "JAVA_HOME = $4" >> /home/$1/fe/conf/fe.conf
 echo "tablet_create_timeout_second = 4" >> /home/$1/fe/conf/fe.conf
-sed -i "s,-Xmx2024m,-Xmx8G,g" /home/$1/fe/conf/fe.conf
+sed -i "s,-Xmx4096m,-Xmx8G,g" /home/$1/fe/conf/fe.conf
 sed -i "s,edit_log_port = 9010,edit_log_port = 9011,g" /home/$1/fe/conf/fe.conf
 
 # Modify FE bin file
