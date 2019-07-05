@@ -1,5 +1,5 @@
 # palo-deploy
-使用shell脚本部署Apache Doris (incubating)（原百度palo，适用版本：0.8.X/ 0.9.X）
+使用shell脚本部署Apache Doris (incubating)（原百度palo，适用版本：0.8.X/ 0.9.X/ 0.10.X）
 
 ## 快速部署
 
@@ -123,7 +123,13 @@ clusterId=xxx
 
 注：必须指定token及clusterId，否则FE加入集群会失败：`ErrMsg: invalid cluster id: xxx`
 
-4. BE及FE全部升级完毕后，重启supervisor，使之生效：
+4. 升级`apache_hdfs_broker`，`root`环境下执行以下命令：
+
+```bash
+sh upgrade-fs_brokers.sh palo /usr/local/src/output /data/palo_hdfs_broker_log /home/soft/java
+```
+
+5. BE/FE/broker全部升级完毕后，重启supervisor，使之生效：
 
 ```
 supervisorctl reload
